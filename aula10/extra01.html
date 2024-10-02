@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        body {
+            background-color: teal;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: wheat;
+        }
+        input {
+            background-color: aliceblue;
+            height: 30px;
+            border-style: none;
+        }
+        input#saber {
+            background-color: wheat;
+            font-size: 1.3rem;
+            color: brown;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Ficha com Javascript</h1>
+    <h2>Você pode dirigir?</h2>
+    <p>Nome: <input type="text" id="name" placeholder="Seu Nome"></p>
+    <p>Ano de nascimento: <input type="number" id="ano" min="0" max="1000"></p>
+    <p><input type="button" value="Saber" id="saber" onclick="dirigir()"></p>
+    <h3>Resultado: </h3>
+    <div id="res"></div>
+
+    <script>
+        function dirigir() {
+        var nome = document.getElementById('name')
+        var ano = document.getElementById('ano')
+        var res =document.getElementById('res')
+        nano = Number(ano.value)
+        var idade = 2024 - nano
+        
+        document.res.write('Resultado')
+    
+    }
+
+
+    </script>
+    
+</body>
+</html>
