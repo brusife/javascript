@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo de cálculos</title>
+    <style>
+        body {
+            background-color: teal;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: lightyellow;
+        }
+
+        main {
+            margin: 0px;
+            margin:auto;
+            max-width: 800px;
+            text-align: center;
+
+        }
+
+        
+        .contain {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            gap: 10px;
+        }
+
+        .item {
+            align-content: center;
+            font-family: sans-serif;
+            font-size: 1.4rem;
+            text-align: center;
+            flex-basis: 150px;
+            height: 120px;
+            background-color: rgb(0, 68, 68);
+            transition: 0.6s;
+            cursor: pointer;
+        }
+         .item:hover {
+            font-size: 1.5rem;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.795);
+            box-shadow: inset 0px -80px 45px rgba(0, 37, 68, 0.705);
+         }
+
+         div#operacao {
+            font-size: 1.3rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+         }
+
+         div#operacao > h1 {
+            font-size: 1.7rem;
+            color: white;
+            background-color: rgba(0, 37, 68, 0.705);
+         }
+
+         .campo {
+            background:none;
+            border-style: solid;
+            border-color: rgb(0, 27, 27);
+            width: 90px;
+            height: 50px;
+            color: rgb(0, 27, 27);
+            font-size: 1.2rem;
+            text-align: center;
+         }
+
+         div#mostraradi {
+            display: none;
+         }
+         
+         div#mostraradi  p {
+             font-size: 3em;
+             color: rgb(0, 27, 27);
+             align-content: center;
+         }
+
+         div#soma {
+            background-color: rgb(0, 68, 68);
+            cursor: pointer;
+         }
+
+        </style>
+</head>
+<body>
+    <main>
+        <h1>Cálculos com Javascript</h1>
+        <h2>Escolha sua operação:</h2>
+        <div class="contain">
+            <div class="item" id="adi" onclick="adicao()">Adição</div>
+            <div class="item" id="sub" onclick="subtracao()">Subtração</div>
+            <div class="item" id="mul" onclick="multiplicacao()">Multiplicação</div>
+            <div class="item" id="div" onclick="divisao()">Divisão</div>
+        </div>
+
+        <div class="container">
+            <div id="operacao">
+
+            </div>
+            <div id="mostraradi">
+                <p><input type="number" name="n1" id="n1" class="campo"> + <input type="number" name="n2" id="n2" class="campo"></p>
+                <div id="soma"onclick='somar()'>
+                    <p>=</p>
+                </div>
+                <div id="resadi"></div>
+            </div>
+        </div>
+
+        <script>
+            var operacao = document.getElementById('operacao')
+            var resadi = document.getElementById('resadi')
+            function adicao() {
+                operacao.innerHTML = "<h1>Adição</h1>"
+                var mostraradi = document.getElementById('mostraradi')
+                mostraradi.style.display='block'
+                
+            }
+            function somar(){
+                var n1 = document.getElementById('n1')
+                var n2 = document.getElementById('n2')
+                var v1 = Number(n1.value)
+                var v2 = Number(n2.value)
+                var s = v1 + v2
+                resadi.innerHTML = `<h1>${s}</h1>`
+            }
+        
+            var botaosub = document.getElementById('sub')
+            function subtracao() {
+                operacao.innerHTML = "<h1>Subtração</h1>"
+            }
+
+            var botaomul = document.getElementById('mul')
+            function multiplicacao() {
+                operacao.innerHTML = "<h1>Multiplicação</h1>"
+            }
+
+            var botaodiv = document.getElementById('div')
+            function divisao() {
+                operacao.innerHTML = "<h1>Divisão</h1>"
+            }
+
+        </script>
+
+
+    </main>   
+</body>
+</html>

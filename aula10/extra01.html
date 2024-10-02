@@ -19,29 +19,49 @@
             background-color: wheat;
             font-size: 1.3rem;
             color: brown;
+            cursor: pointer;
+            border-radius: 0px 20px 20px 0px;
+            padding-right: 40px;
+            display: block;
         }
 
+        input#saber:hover {
+            box-shadow: inset 0px -10px 20px brown;
+        }
+
+        div#res {
+            width: 350px;
+        }
+        
+        
     </style>
 </head>
 <body>
     <h1>Ficha com Javascript</h1>
     <h2>Você pode dirigir?</h2>
-    <p>Nome: <input type="text" id="name" placeholder="Seu Nome"></p>
+    <p>Nome: <input type="text" id="name" placeholder="Seu Nome" autocomplete="off" maxlength="30"></p>
     <p>Ano de nascimento: <input type="number" id="ano" min="0" max="1000"></p>
-    <p><input type="button" value="Saber" id="saber" onclick="dirigir()"></p>
+    <p><input type="button" value="Saber" id="saber" onclick="dirigir()" ></p>
     <h3>Resultado: </h3>
     <div id="res"></div>
 
     <script>
         function dirigir() {
-        var nome = document.getElementById('name')
+        var name = document.querySelector('input#name')
         var ano = document.getElementById('ano')
         var res =document.getElementById('res')
         nano = Number(ano.value)
         var idade = 2024 - nano
+        if (idade >= 18) {
+            var vota = 'PODE DIRIGIR'
+            res.style.background = 'green'
+            res.style.color = 'white'
+        }else {var vota = 'NÃO PODE DIRIGIR, espere até completar 18 anos'
+            res.style.background = 'red'
+            res.style.color = 'white'}
         
-        document.res.write('Resultado')
-    
+        res.innerHTML = `Olá <strong>${name.value}</strong>, esse ano você faz ${idade} anos, você <strong>${vota}</strong>`
+        
     }
 
 
